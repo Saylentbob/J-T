@@ -32,35 +32,34 @@
 		<!--  -->
 		<div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
 			<h3 class="l1-txt1 txt-center p-b-25">
-				Coming Soon
+				INÍCIO DAS OPERAÇÕES
 			</h3>
 
 			<p class="m2-txt1 txt-center p-b-48">
-				Our website is under construction, follow us for update now!
 			</p>
 
 			<div class="flex-w flex-c-m cd100 p-b-33">
 				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
-					<span class="l2-txt1 p-b-9 days">35</span>
-					<span class="s2-txt1">Days</span>
+					<span class="l2-txt1 p-b-9 days">--</span>
+					<span class="s2-txt1">Dias</span>
 				</div>
 
 				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
-					<span class="l2-txt1 p-b-9 hours">17</span>
-					<span class="s2-txt1">Hours</span>
+					<span class="l2-txt1 p-b-9 hours">--</span>
+					<span class="s2-txt1">Horas</span>
 				</div>
 
 				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
-					<span class="l2-txt1 p-b-9 minutes">50</span>
-					<span class="s2-txt1">Minutes</span>
+					<span class="l2-txt1 p-b-9 minutes">--</span>
+					<span class="s2-txt1">Minutos</span>
 				</div>
 
 				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
-					<span class="l2-txt1 p-b-9 seconds">39</span>
-					<span class="s2-txt1">Seconds</span>
+					<span class="l2-txt1 p-b-9 seconds">--</span>
+					<span class="s2-txt1">Segundos</span>
 				</div>
 			</div>
-
+			<div id="countdown" style="display:none;"></div>
 			<!-- <form class="w-full flex-w flex-c-m validate-form">
 
 				<div class="wrap-input100 validate-input where1" data-validate = "Valid email is required: ex@abc.xyz">
@@ -78,7 +77,45 @@
 
 
 
-	
+	<script>
+		//                  mes/dia/ano
+		var end = new Date('03/22/2022 05:00 PM');
+		
+			var _second = 1000;
+			var _minute = _second * 60;
+			var _hour = _minute * 60;
+			var _day = _hour * 24;
+			var timer;
+		
+			function showRemaining() {
+				var now = new Date();
+				var distance = end - now;
+				if (distance < 0) {
+		
+					clearInterval(timer);
+					document.getElementById('countdown').innerHTML = 'EXPIRED!';
+		
+					return;
+				}
+				var days = Math.floor(distance / _day);
+				var hours = Math.floor((distance % _day) / _hour);
+				var minutes = Math.floor((distance % _hour) / _minute);
+				var seconds = Math.floor((distance % _minute) / _second);
+		
+				document.getElementById('countdown').innerHTML = days + 'days ';
+				document.getElementById('countdown').innerHTML += hours + 'hrs ';
+				document.getElementById('countdown').innerHTML += minutes + 'mins ';
+				document.getElementById('countdown').innerHTML += seconds + 'secs';
+
+				$('.days').text(days);
+				$('.hours').text(hours);
+				$('.minutes').text(minutes);
+				$('.seconds').text(seconds);
+			}
+		
+			timer = setInterval(showRemaining, 1000);
+	</script>
+	<!-- <div id="countdown"></div> -->
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -92,7 +129,7 @@
 	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
 	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
 	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<script>
+	<!-- <script>
 		$('.cd100').countdown100({
 			/*Set Endtime here*/
 			/*Endtime must be > current time*/
@@ -106,7 +143,7 @@
 			// ex:  timeZone: "America/New_York"
 			//go to " http://momentjs.com/timezone/ " to get timezone
 		});
-	</script>
+	</script> -->
 <!--===============================================================================================-->
 	<script src="vendor/tilt/tilt.jquery.min.js"></script>
 	<script >
@@ -116,6 +153,8 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+
 
 </body>
 </html>
