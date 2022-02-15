@@ -36,7 +36,15 @@ Primary use:
   src: url('../fonts/Lato/Lato-Bold.ttf'); 
 }
 
-
+#correctGIF > img {
+  position: absolute;
+  /* left: 50%; */
+  /* top: 50%; */
+  display:block;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ RS PLUGIN ]*/

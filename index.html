@@ -28,6 +28,11 @@
 		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg03.jpg');"></div>
 	</div>
 
+	<div id="correctGIF" data-role="page" data-add-back-btn="false" style="display: none;">
+		<!-- <img src="gifs/dance.gif"> -->
+		<img src="gifs/firework.gif">
+	</div>
+
 	<div class="size1 overlay1">
 		<!--  -->
 		<div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
@@ -90,10 +95,10 @@
 			function showRemaining() {
 				var now = new Date();
 				var distance = end - now;
-				if (distance < 0) {
-		
+				if (distance <= 0) {
+					$('#correctGIF').css('display', 'block')
 					clearInterval(timer);
-					document.getElementById('countdown').innerHTML = 'EXPIRED!';
+					// document.getElementById('countdown').innerHTML = 'EXPIRED!';
 		
 					return;
 				}
